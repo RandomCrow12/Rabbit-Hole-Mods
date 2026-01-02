@@ -1,12 +1,12 @@
 (function (Scratch) {
   "use strict";
 
-  document.CustomDealer = true;
+  document.CustomDeals = true;
   document.addEventListener("keypress", (event) => {
     // key to use below, replace with whichever key you would like
     if (event.key === "`" && Scratch.vm.vars.get("IsPlaying?") === "1") {
-      if (document.CustomDealer) {
-        document.CustomDealer = false;
+      if (document.CustomDeals) {
+        document.CustomDeals = false;
         Scratch.vm.broadcast("transition");
         // timeout 0.8 seconds
         setTimeout(() => {
@@ -70,23 +70,24 @@
           
 
           setTimeout(() => {
-            document.CustomDealer = true;
+            document.CustomDeals = true;
           }, 3000);
         }, 800);
       }
     }
   });
 
-  class CustomDealer {
+  class CustomDeals {
     getInfo() {
       return {
-        id: "CustomDealer",
-        name: "CustomDealer",
+        id: "CustomDeals",
+        name: "CustomDeals",
         blocks: [],
         menus: {},
       };
     }
   }
 
-  Scratch.extensions.register(new CustomDealer());
+  Scratch.extensions.register(new CustomDeals());
 })(Scratch);
+
